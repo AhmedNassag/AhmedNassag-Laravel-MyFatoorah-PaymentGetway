@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FatoorahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//myFatoorah
+Route::get('paymentCallBack', [FatoorahController::class,'paymentCallBack'])->name('paymentCallBack');
+Route::get('paymentrror', [FatoorahController::class,'paymentError'])->name('paymentError');

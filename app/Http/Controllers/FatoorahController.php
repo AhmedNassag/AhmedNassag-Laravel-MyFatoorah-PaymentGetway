@@ -22,7 +22,7 @@ class FatoorahController extends Controller
         $data = [
             'CustomerName'       => 'Ahmed Nabil',
             'NotificationOption' => 'LNK',
-            'InvoiceValue'       => 199,
+            'InvoiceValue'       => 100,
             'CustomerEmail'      => 'ahmednassag@gmail.com',
             'CallBackUrl'        => /*env('FATOORAH_SUCCESS_URL')*/ route('paymentCallBack'),
             'ErrorUrl'           => /*env('FATOORAH_ERROR_URL')*/ route('paymentError'),
@@ -55,6 +55,6 @@ class FatoorahController extends Controller
 
     public function paymentError(Request $request)
     {
-        return redirect()->route('payment.failed')->with('error', 'Payment was cancelled or failed');
+        return redirect('/')->withErrors(['error' => 'Sorry, Payment was cancelled or failed. Please try again...']);
     }
 }
